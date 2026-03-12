@@ -1,16 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Shield, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { to: "/", label: "Dashboard" },
-  { to: "/tools/website-audit", label: "Audit" },
-  { to: "/tools/link-checker", label: "Link Check" },
-  { to: "/tools/password-checker", label: "Password" },
-  { to: "/tools/privacy-policy", label: "Policy Gen" },
+  { to: "/", label: "Home" },
+  { to: "/tools/website-audit", label: "Tools" },
   { to: "/tools/report", label: "Report" },
 ];
 
@@ -23,8 +21,8 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-lg tracking-tight">
-          <Shield className="h-6 w-6 text-foreground" />
-          <span>SecureTools</span>
+          <img src={logo} alt="WebAuditPro" className="h-8 w-8" />
+          <span className="gradient-text">WebAuditPro</span>
         </Link>
 
         {/* Desktop nav */}
@@ -36,8 +34,8 @@ export function Navbar() {
               className={cn(
                 "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                 location.pathname === link.to
-                  ? "bg-secondary text-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                  ? "gradient-primary text-white"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
               )}
             >
               {link.label}
@@ -78,7 +76,7 @@ export function Navbar() {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === link.to
-                    ? "bg-secondary text-foreground"
+                    ? "gradient-primary text-white"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
