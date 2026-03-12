@@ -1,12 +1,16 @@
 import { Linkedin, Twitter } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
     <footer className="border-t bg-background">
       <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 py-8">
-        <p className="text-sm text-muted-foreground">
-          Made by <span className="font-semibold text-foreground">Anuj Sharma</span>
-        </p>
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="WebAuditPro" className="h-6 w-6" />
+          <p className="text-sm text-muted-foreground">
+            Made by <span className="font-semibold text-foreground">Anjali Sharma</span>
+          </p>
+        </div>
         <div className="flex items-center gap-3">
           <a
             href="https://www.linkedin.com/in/anuj-sharma-537a403aa"
